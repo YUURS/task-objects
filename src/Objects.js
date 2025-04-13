@@ -8,17 +8,20 @@
   Объект после манипуляций следует вернуть в качестве результата работы функции.
 */
 export function personUpdate(data) {
-  if (data.gender === "female") {
-    if (age in data) {
-      delete data.age
+
+  let newdata = {...data}
+
+  if (newdata.gender === "female") {
+    if (age in newdata) {
+      delete newdata.age
     }
   }
-  if (data.gender === "male") {
+  if (newdata.gender === "male") {
     if (!(income in data)) {
-      data.income = 100000
+      newdata.income = 100000
     }
   }
-  return data
+  return newdata
 }
 
 /*
