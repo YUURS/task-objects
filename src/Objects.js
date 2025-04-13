@@ -39,9 +39,9 @@ export function objectFieldsList(obj1, obj2, obj3) {
   Количество клонов - count.
 */
 export function objectClone(obj, count) {
-  obj_ret = {}
+  let arr = []
   for (let i=0;i<count;i++) {
-    obj_ret += {...obj} 
+    arr.push({...obj,id: i})  
   }
-  return obj_ret
+  return arr
 }
