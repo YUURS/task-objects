@@ -7,21 +7,36 @@
   и присвоить начальное значение 100000.
   Объект после манипуляций следует вернуть в качестве результата работы функции.
 */
+// export function personUpdate(data) {
+
+//   let newdata = {...data}
+
+//   if (newdata.gender === "female") {
+//     if (age in newdata) {
+//       delete newdata.age
+//     }
+//   }
+//   if (newdata.gender === "male") {
+//     if (!(income in data)) {
+//       newdata.income = 100000
+//     }
+//   }
+//   return newdata
+// }
+
 export function personUpdate(data) {
-
-  let newdata = {...data}
-
-  if (newdata.gender === "female") {
-    if (age in newdata) {
-      delete newdata.age
+  const result = JSON.parse(JSON.stringify(data));
+  
+  if (String(result.gender).toLowerCase() === 'female') {
+    delete result.age;
+  } 
+  else if (String(result.gender).toLowerCase() === 'male') {
+    if (!('income' in result)) {
+      result.income = 100000;
     }
   }
-  if (newdata.gender === "male") {
-    if (!(income in data)) {
-      newdata.income = 100000
-    }
-  }
-  return newdata
+  
+  return result;
 }
 
 /*
